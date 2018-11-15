@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import jsonpAdapter from 'axios-jsonp';
+import PetResults from './Components/PetResults';
+
 
 const URL = 'http://api.petfinder.com/pet.find';
 const KEY = process.env.REACT_APP_API_KEY;
@@ -8,7 +10,8 @@ const PARAMS = {
   key: KEY,
   format: 'json',
   animal: 'dog',
-  location: 'New York City, NY' //only want to show results for NYC since this is going to be local shelter
+  location: '11102' //only want to show results for NYC since this is going to be local shelter
+
 };
 
 class App extends Component {
@@ -16,7 +19,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      breeds: []
+      dogs: [],
     }
   }
 
@@ -34,9 +37,31 @@ class App extends Component {
 
     const resp = await axios(URL, opts);
       const data = resp.data;
-      const breedList = data.petfinder.breeds.breed;
-      const breeds = breedList.map(breed => Object.values(breed)[0]);
-      this.setState({ breeds: breeds });
+      const dogList = data.petfinder.pets.pet;
+      console.log('this is dogList', dogList);
+      const dogs = dogList.map(dog => {
+        const id = dog.id["$t"]
+        const photo = dog.media.photos.photo[0]['$t']
+        const name = dog.name['$t']
+        const breed = dog.breeds.breed['$t']
+        const sex = dog.sex['$t']
+        const age = dog.age['$t']
+          return {
+            id: id,
+            photo: photo,
+            name: name,
+            breed: breed,
+            sex: sex,
+            age: age
+          }
+      })
+
+      // let value;
+      // for (value in dogs){
+      //   const dogValues = dogs[value]
+      // }
+      console.log('this is dogs', dogs)
+      this.setState({ dogs: dogs });
     } catch(e) {
       console.log(e);
     }
@@ -45,9 +70,13 @@ class App extends Component {
     return (
       <div className="App">
         <h2>Find your new BFF</h2>
-        {this.state.breeds.map(breed => (
-          <div key={breed}>{breed}</div>
-        ))}
+        <PetResults details={this.state.dogs}/>
+
+        {/* {JSON.stringify(this.state.dogs)} */}
+        {/* {this.state.dogs.map(dog, id => (
+          <div>{dog.id}</div> */}
+
+        {/* ))} */}
       </div>
     );
   }
