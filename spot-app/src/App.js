@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import jsonpAdapter from 'axios-jsonp';
 import PetResults from './Components/PetResults';
+import Search from './Components/Search';
 
 
 const URL = 'http://api.petfinder.com/pet.find';
@@ -11,7 +12,6 @@ const PARAMS = {
   format: 'json',
   animal: 'dog',
   location: '11102' //only want to show results for NYC since this is going to be local shelter
-
 };
 
 class App extends Component {
@@ -19,9 +19,9 @@ class App extends Component {
     super(props);
 
     this.state = {
-      dogs: [],
+      dogs: []
+      }
     }
-  }
 
   componentDidMount() {
     this.fetch();
@@ -38,7 +38,6 @@ class App extends Component {
     const resp = await axios(URL, opts);
       const data = resp.data;
       const dogList = data.petfinder.pets.pet;
-      console.log('this is dogList', dogList);
       const dogs = dogList.map(dog => {
         const id = dog.id["$t"]
         const photo = dog.media.photos.photo[0]['$t']
@@ -56,21 +55,19 @@ class App extends Component {
           }
       })
 
-      // let value;
-      // for (value in dogs){
-      //   const dogValues = dogs[value]
-      // }
-      console.log('this is dogs', dogs)
       this.setState({ dogs: dogs });
     } catch(e) {
       console.log(e);
     }
   }
+
   render() {
     return (
       <div className="App">
-        <h2>Find your new BFF</h2>
-        <PetResults details={this.state.dogs}/>
+        <Search />
+        <h1>Spot</h1> <span><img src='../public/pawprint.png' alt='pawprint heart'/></span>
+        <h2>Find your new Best Furry Friend</h2>
+        <PetResults details={this.state.dogs} />
 
         {/* {JSON.stringify(this.state.dogs)} */}
         {/* {this.state.dogs.map(dog, id => (
