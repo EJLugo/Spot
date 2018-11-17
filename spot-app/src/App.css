@@ -18,3 +18,18 @@
   height: 200px;
   width: 200px;
 }
+/* Footer */
+.footer {
+  text-align: center;
+}
+
+
+/* Landing page */
+.pawprint {
+  height: 100px;
+  width: 100px;
+}
+
+/* .pawprint:hover {
+  maybe do something here??
+} */

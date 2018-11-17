@@ -3,6 +3,7 @@ import axios from 'axios';
 import jsonpAdapter from 'axios-jsonp';
 import PetResults from './Components/PetResults';
 import ChangeButton from './Components/ChangeButton';
+import Footer from './Components/Footer';
 
 const URL = 'http://api.petfinder.com/pet.find';
 const KEY = process.env.REACT_APP_API_KEY;
@@ -11,7 +12,6 @@ const PARAMS = {
   format: 'json',
   animal: 'dog',
   location: '11102', //only want to show results for NYC since this is going to be local shelter
-  count: 10
 };
 
 class App extends Component {
@@ -20,7 +20,6 @@ class App extends Component {
 
     this.state = {
       dogs: [],
-      dogView: []
       }
       this.getView = this.getView.bind(this);
     }
@@ -30,7 +29,7 @@ class App extends Component {
         case 'M':
           let dogs = this.state.dogs;
           dogs.filter(dog => dog.sex === 'M')
-          return <PetResults details={dogs}
+          return <PetResults details={dogs} />
       }
     }
 
@@ -78,10 +77,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ChangeButton />
-        <h1>Spot</h1> <img src='./public/pawprint.png' alt='pawprint heart'/>
+        <ChangeButton className='filter-button'/>
+        <img src='pawprint.png' alt='pawprint heart' className='pawprint'/>
+        <h1>Spot</h1>
         <h2>Find your new Best Furry Friend</h2>
         <PetResults details={this.state.dogs} />
+        <Footer />
 
         {/* {JSON.stringify(this.state.dogs)} */}
         {/* {this.state.dogs.map(dog, id => (
