@@ -1,7 +1,17 @@
 /* PetResults */
+
 .pet-main-profile {
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 1em;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.pet-main-details {
+  border: solid grey;
+  text-align: center;
+  overflow: scroll;
 }
 
 .photo {
@@ -9,27 +19,40 @@
   border: solid blue;
   height: 150px;
   width: 150px;
-  position: absolute;
   left: 150px;
 }
 
 .pet-details-menu {
   background-color: lightblue;
-  height: 200px;
-  width: 200px;
-}
-/* Footer */
-.footer {
-  text-align: center;
+  height: 250px;
+  width: auto;
 }
 
 
-/* Landing page */
+/* Main page */
 .pawprint {
   height: 100px;
   width: 100px;
 }
 
-/* .pawprint:hover {
-  maybe do something here??
-} */
+.pet-name {
+  font-weight: 500;
+  font-family: 'Fredoka One';
+  font-size: 24pt;
+}
+
+.pet-name:hover {
+  color: pink;
+  size: 36pt;
+  font-weight: 800;
+}
+
+.dog-grid {
+  background-color: red;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  color: brown;
+}
