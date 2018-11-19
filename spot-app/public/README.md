@@ -9,13 +9,13 @@ SPOT is an animal lover's best tool for finding their new furry friend.
 - SPOT is designed for people in the New York City area who want to adopt animals in need in their area, rather than searching for animals at shelters anywhere in the country.
 
 
-Link to the repo: [https://github.com/Ejlugo/Spot]
+Link to the repo: https://github.com/Ejlugo/Spot
 
-Link to screencast: [https://youtu.be/sBgJKBbJCHw]
+Link to screencast: https://youtu.be/sBgJKBbJCHw
 
 ### Code Snippet
 
-Petfinder's API was dense with information in that it was an array of many nested objects, all of which eventually had the same key of '$t.' Once I was able to identify that pattern, it made it easy to pull the information that I wanted to populate within my app. However, there were some challenges for some information which led to some inconsistencies within the app. For example, dogs that are mixed breeds have an additional object which, when pulling the inforamtion as I have below, does not include the full path, and therefore does not show within the app.
+Petfinder's API was dense with information in that it was an array of many nested objects, all of which eventually had the same key of '$t.' Once I was able to identify that pattern, it made it easy to pull the information that I wanted to populate within my app. However, there were some challenges for some information which led to some inconsistencies within the app. For example, dogs that are mixed breeds have an additional object which, when pulling the information as I have below, does not include the full path, and therefore does not show within the app.
 
 ```Javascript
 
