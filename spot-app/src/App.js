@@ -3,7 +3,6 @@ import axios from 'axios';
 import jsonpAdapter from 'axios-jsonp';
 import PetResults from './Components/PetResults';
 import Footer from './Components/Footer';
-import CatList from './Components/CatList';
 
 const URL = 'http://api.petfinder.com/pet.find';
 const KEY = process.env.REACT_APP_API_KEY;
@@ -40,7 +39,6 @@ class App extends Component {
     const resp = await axios(URL, opts);
       const data = resp.data;
       const dogList = data.petfinder.pets.pet;
-      console.log(dogList);
       const dogs = dogList.map(dog => {
         const id = dog.id["$t"]
         const photo = dog.media.photos.photo[0]['$t']
@@ -75,7 +73,6 @@ class App extends Component {
         <h2 className='tagline'>Find your new Best Furry Friend</h2>
         <PetResults details={this.state.dogs} />
         <Footer />
-        <CatList cdetails={this.state.cats} />
       </div>
     );
   }

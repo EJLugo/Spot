@@ -38,6 +38,7 @@ class CatResults extends Component {
       const catList = data.petfinder.pets.pet;
       console.log(catList);
       const cats = catList.map(cat => {
+        console.log(cats);
         const id = cat.id['$t']
         const name = cat.name['$t']
           return {
@@ -56,8 +57,7 @@ class CatResults extends Component {
     render() {
       return (
         <div>
-          <p>I'm a cat</p>
-          <PetResults details='this.cdetails.cats' />
+          <CatList cdetails={this.state.cats} />
         </div>
       );
     }
