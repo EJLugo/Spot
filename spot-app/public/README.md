@@ -13,6 +13,8 @@ Link to the repo: https://github.com/Ejlugo/Spot
 
 Link to screencast: https://youtu.be/sBgJKBbJCHw
 
+Link to deployed site: http://spotbff.surge.sh/
+
 ### Code Snippet
 
 Petfinder's API was dense with information in that it was an array of many nested objects, all of which eventually had the same key of '$t.' Once I was able to identify that pattern, it made it easy to pull the information that I wanted to populate within my app. However, there were some challenges for some information which led to some inconsistencies within the app. For example, dogs that are mixed breeds have an additional object which, when pulling the information as I have below, does not include the full path, and therefore does not show within the app.
