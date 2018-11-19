@@ -1,5 +1,4 @@
 /* PetResults */
-
 .pet-main-profile {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -14,16 +13,20 @@
   overflow: scroll;
 }
 
+.pet-main-details:hover {
+  box-shadow: 10px 10px grey;
+}
+
 .photo {
   border-radius: 100px;
-  border: solid blue;
+  border: solid #79C7C5 15px;
   height: 150px;
   width: 150px;
   left: 150px;
 }
 
 .pet-details-menu {
-  background-color: lightblue;
+  background-color: #ADE1E5;
   height: 250px;
   width: auto;
 }
@@ -33,6 +36,7 @@
 .pawprint {
   height: 100px;
   width: 100px;
+  align-items: center;
 }
 
 .pet-name {
@@ -42,13 +46,21 @@
 }
 
 .pet-name:hover {
-  color: pink;
+  color: #273C2C;
   size: 36pt;
   font-weight: 800;
 }
 
 .dog-grid {
   background-color: red;
+}
+
+.app-title {
+  text-align: center;
+}
+
+.tagline {
+  text-align: center;
 }
 
 /* Footer */
