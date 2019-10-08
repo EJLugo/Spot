@@ -10,8 +10,9 @@
 .pet-main-details {
   border: solid grey;
   text-align: center;
-  overflow: scroll;
+  
 }
+
 
 .pet-main-details:hover {
   box-shadow: 10px 10px grey;
@@ -29,6 +30,7 @@
   background-color: #ADE1E5;
   height: 250px;
   width: auto;
+  overflow: scroll;
 }
 
 
