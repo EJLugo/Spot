@@ -3,6 +3,7 @@ import axios from 'axios';
 import jsonpAdapter from 'axios-jsonp';
 import PetResults from './Components/PetResults';
 import Footer from './Components/Footer';
+import NavBar from './Components/NavBar';
 
 const URL = 'http://api.petfinder.com/pet.find';
 const KEY = process.env.REACT_APP_API_KEY;
@@ -69,6 +70,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <NavBar />
         <h1 className='app-title'>Spot</h1>
         <h2 className='tagline'>Find your new Best Furry Friend</h2>
         <PetResults details={this.state.dogs} />

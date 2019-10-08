@@ -5,7 +5,7 @@ class AdoptionForm extends Component {
     return (
       <div>
         <form>
-          <p>I am an adoption form! Use me to find your new best friend! :)</p>
+          <p>I am an adoption form! Use me to find your new best friend!</p>
         </form>
       </div>
     )
